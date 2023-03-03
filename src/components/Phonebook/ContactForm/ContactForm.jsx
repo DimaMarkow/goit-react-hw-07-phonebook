@@ -2,9 +2,8 @@ import { useState } from 'react';
 import css from 'components/Phonebook/phonebook.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addContact, deleteContact } from 'redux/contacts/operations';
+import { addContact } from 'redux/contacts/operations';
 
-// import { addContact } from 'redux/contacts/contacts-slice';
 import { getAllContacts } from 'redux/contacts/contacts-selectors';
 
 const INITIAL_STATE = {
@@ -40,7 +39,6 @@ const ContactForm = () => {
       alert(alertString);
       return;
     }
-    //     dispatch(addContact(event.target.elements.text.value));
     dispatch(addContact({ ...data }));
     resetForm();
   };

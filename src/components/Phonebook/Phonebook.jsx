@@ -8,6 +8,7 @@ import css from './phonebook.module.css';
 import ContactForm from 'components/Phonebook/ContactForm/ContactForm';
 import ContactList from 'components/Phonebook/ContactList/ContactList';
 import Filter from 'components/Phonebook/Filter/Filter';
+import Loader from 'components/Phonebook/Loader/Loader';
 
 import {
   getFilteredContacts,
@@ -31,9 +32,9 @@ const Phonebook = () => {
     <div className={css.wrapper}>
       <ContactForm />
       <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <Loader />}
       {isContacts && <ContactList />}
-      {!isContacts && <p>No contacts in the list</p>}
+      {!isContacts && !isLoading && <p>No contacts in the list</p>}
     </div>
   );
 };
